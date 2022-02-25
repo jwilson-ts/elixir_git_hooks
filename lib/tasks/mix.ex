@@ -77,7 +77,7 @@ defimpl GitHooks.Task, for: GitHooks.Tasks.Mix do
 
   # Mix tasks raise an error if they are valid, but determining if they are
   # success or not depends on the return of the task.
-  @success_results [0, :ok, nil]
+  @success_results [0, :ok, nil, {:ok, []}]
 
   def success?(%MixTask{result: result}) when result in @success_results, do: true
   def success?(%MixTask{result: _}), do: false
